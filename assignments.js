@@ -14,7 +14,7 @@ let language;
 //
 //
 //////////////////Lecture 3-let, const and var
-language = "Romanian";
+language = "romanian";
 const country = "Romania";
 const continent = "Europe";
 const isIsland = true;
@@ -102,4 +102,47 @@ if (language === "english" && population < 50 && !isIsland) {
 } else {
   console.log(`${country} does not meet your criteria :(`);
 }
+*/
+
+//
+//
+/////////////////Lecture 10- The Switch Statement
+/*
+switch (language) {
+  case "chinese":
+  case "mandarin":
+    console.log("MOST number of native speakers!");
+    break;
+  case "spanish":
+    console.log("2nd place of native speakers");
+    break;
+  case "english":
+    console.log("3rd place");
+    break;
+  case "hindi":
+    console.log("Number 4");
+    break;
+  case "arabic":
+    console.log("5th most spoken language");
+    break;
+  default:
+    console.log("great language too :)");
+}
+*/
+
+//
+//
+/////////////////Lecture 11- The Conditional (Ternary) Operator
+
+//aici e cum am rezolvat eu:
+// const populationAverage =
+//   population > 33
+//     ? console.log(`Romania's population is above average`)
+//     : console.log(`Romania's population is below average`);
+
+// mai jos este varianta corecta:
+/*
+console.log(
+  `${country}'s population is ${population > 33 ? "above" : "below"} average`
+);
 */

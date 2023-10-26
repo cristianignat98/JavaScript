@@ -220,3 +220,39 @@ if (day === "monday") {
   console.log("Not a valid day!");
 }
 */
+// STATEMENTS AND EXPRESSIONS
+/*
+// An expression is a piece of code which produces a VALUE, for ex: 3+4 , 1991, true && false etc.
+// statements cannot be inserted into a line where JS expects an expression
+// for ex: console.log(`I'm ${2037 - 1991} years old ${if(..)...});
+*/
+
+//THE CONDITIONAL (TERNARY) OPERATOR
+/*
+
+//The Conditional (Ternary- has three parts) operator allows if/else statements to be written in just one line of code, using ? and :
+const age = 18;
+// age >= 18
+//   ? console.log("I like to drink wine")
+//   : console.log("I like to drink water");
+
+//varianta de mai sus nu e asa de folosita, in schimb cea de mai jos da:
+
+age >= 18 ? "wine" : "water"; // aici avem an EXPRESSION(which produces a value), and now we can store this value into a variable:
+
+const drink = age >= 18 ? "wine" : "water";
+console.log(drink);
+
+// Daca faceam dupa metoda if/else statement, arata asa:
+let drinkNew;
+if (age >= 18) {
+  drinkNew = "wine";
+} else {
+  drinkNew = "water";
+}
+console.log(drinkNew);
+
+// Even further: if ternary operator is an expression, we can use it to create a condition into a Template Literal:
+console.log(`I like to drink ${age >= 18 ? "wine" : "water"}`);
+
+*/
