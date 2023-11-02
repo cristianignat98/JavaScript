@@ -1,258 +1,252 @@
-////////////////////////OPERATORI BASIC////////////////////////////
-// OPERATORI MATEMATICI
-/* 
-const now = 2037;
-const ageJonas = now - 1991;
-const ageSarah = now - 2018;
-console.log(ageJonas, ageSarah);
+///////////////////// FUNDAMENTALS PART 2 ////////////////////
+//ACTIVATING STRICT MODE
+"use strict";
 
-console.log(ageJonas * 2, ageJonas / 10, 2 ** 3);
-// 2 ** 3 means 2 to the power of 3 (2 la puterea 3) = 2 * 2 * 2
-
-const firstName = "Cristian";
-const lastName = "Ignat";
-console.log(firstName + "" + lastName);
-
-
-// OPERATORI DE SARCINI(ASSIGNMENT OPERATORS)
-let x = 10 + 5; // In cazul acesta, = este operatorul de sarcina  //  10+5 = 15
-x += 10; // aici operatorul de sarcina este +=  //////  += inseamna x= x + 10 si este egal cu 25
-x *= 4; // x= x * 4 = 100
-x++; // x= x+1
-x--;
-x--;
-console.log(x);
-
-
-// OPERATORI DE COMPARATIE ( COMPARISON OPERATORS) //  >  <  >=  <=
-console.log(ageJonas > ageSarah); // semnul > este un comparison operator, compara 2 elemente si genereaza un bololean cu TRUE sau FALSE
-console.log(ageSarah >= 18);
-const isFullAge = ageSarah >= 18;
-console.log(now - 1991 < now - 2018);
-*/
-
-//OPERATOR PRECEDENCE ( precedenti)- MDN operator precedence pentru o mai detaliata explicatie
 /*
-const now = 2037;
-const ageJonas = now - 1991;
-const ageSarah = now - 2018;
-console.log(now - 1991 < now - 2018);
+let hasDriversLicence = false;
+const passTest = true;
 
-let x, y;
-x = y = 25 - 10 - 5; // x = y = 10, x = 10
-console.log(x, y);
-const averageAge = (ageJonas + ageSarah) / 2; // average age calculated
-console.log(ageJonas, ageSarah, averageAge);
+if (passTest) hasDriversLicence = true;
+if (hasDriversLicence) console.log("I can drive");
+
+// const interface = "Audio";
+// const private = 543;
 */
 
-// STRINGS AND TEMPLATE LITERALS
+/////// FUNCTIONS /////////
 /*
-const firstName = "Cristian";
-const job = "student";
-const birthYear = 1999;
-const year = 2023;
-
-const cristian =
-  "I'm " + firstName + ", a " + (year - birthYear) + " years old " + job + "!";
-console.log(cristian);
-
-const cristianNew = `I'm ${firstName}, a ${
-  year - birthYear
-} years old ${job}! `;
-console.log(cristianNew);
-*/
-
-// TAKING DECISIONS: IF/ELSE STATEMENT
-/*const age = 15;
-
-if (age >= 18) {
-  console.log("Sarah can start driving licence!");
-} else {
-  const yearsLeft = 18 - age;
-  console.log(`Sarah is too young. Wait another ${yearsLeft} years :)`);
+function logger() {
+  console.log("My name is Cristian");
 }
 
-const birthYear = 1999;
-let century;
-if (birthYear <= 2000) {
-  century = 20;
-} else {
-  century = 21;
+// calling / running / invoking function
+logger();
+logger();
+logger();
+
+function fruitProcessor(apples, oranges) {
+  console.log(apples, oranges);
+  const juice = `Juice with ${apples} apples and ${oranges} oranges`;
+  return juice;
 }
-console.log(century);
+
+const appleJuice = fruitProcessor(5, 0);
+console.log(appleJuice);
 */
 
-// TYPE CONVERSION AND COERCION
-//Type conversion:
+///// FUNCTION DECLARATIONS VS. EXPRESSIONS
 
-// string converted to a number
+// Function declarations :
 /*
-const inputYear = "1991";
-console.log(Number(inputYear)); //aici am transformat 1991 din string in number
-console.log(Number(inputYear) + 18);
-
-// number converted to a string
-console.log(Number("Cristian")); // rezulta NaN (Not a Number)
-console.log(String(23), 23); // aici am transformat 23 din number in string
-
-//Type Coercion (happens whenever an operator is dealing with two values that have diff types)
-console.log("I am " + 23 + " years old"); //aici de ex avem o operatiune unde js transforma singur numarul 23 into a string, pentru ca este adunat between 2 strings.
-
-//Alt exemplu:
-console.log("23" - "10" - 3); // js automatically converted the strings into numbers // Doar la scadere se intampla asta, la adunare js converteste numarul 3 into a string, si iese 23103
-
-//Alt exemplu:
-console.log("23" * "2"); // aici ambele sunt transformate in numbers, pt ca doar asa * works
-console.log("23" / "2"); // la fel si aici
-
-// boolean // 5 falsy values: 0, '' , undefined, null, NaN
-
-console.log(Boolean(0)); // false
-console.log(Boolean(undefined)); // false
-console.log(Boolean("Cristian")); // true
-console.log(Boolean({})); // true
-console.log(Boolean("")); // false
-
-//aici de ex se va arata mesajul de la else, pt ca JS a convertit money = false, daca are valoarea 0 , si atunci mesajul va fi "You should get a job!" desi logic ar fi fost sa fie cel de la if statement, dar boolean conversion il percepe ca false
-const money = 0; // daca dam alta valoare lui 0, atunci se va executa mesajul de la if
-if (money) {
-  console.log("Don't spend it all ;) ");
-} else {
-  console.log("You should get a job!");
+function calcAge1(birthYear) {
+  return 2037 - birthYear;
 }
+const age1 = calcAge1(1991);
 
-// alt ex:
-let height; // since height is undefined, boolean will consider it false, so the else statement will be showed
-if (height) {
-  console.log("Yay! Height is defined");
-} else {
-  console.log("Height is UNDEFINED");
-}
+// Function expressions:
+const calcAge2 = function (birthYear) {
+  return 2037 - birthYear;
+}; // this  funtion is a VALUE that we assigned to the calcAge2 VARIABLE
+
+const age2 = calcAge2(1991);
+
+console.log(age1, age2);
 */
 
-// EQUALITY OPERATORS:    ==   VS.  ===
+//// ARROW FUNCTION
+// Arrow function is shorter and faster to write
 /*
-const age = 18;
-if (age === 18) console.log("You just became an adult"); // === is a strict equal sign and does not get coercion like double equal does ==
+const calcAge3 = (birthYear) => 2023 - birthYear; // this is also a value that we assign to the calcAge3 variable, just like the function expression, but this one is easier and faster to write. We don't need the curly braces {} and also the return happens implicity.
 
-const favourite = Number(prompt("What's your favourite number?"));
-console.log(favourite);
-console.log(typeof favourite);
+const age3 = calcAge3(1999);
+console.log(age3);
 
-if (favourite === 23) {
-  // 23===23
-  console.log("Cool! 23 is nice");
-} else if (favourite === 7) {
-  console.log("Number 7 is also cool!");
-} else if (favourite === 9) {
-  console.log("Number 9 is also cool!");
-} else {
-  console.log("Great!");
-}
+//ex de mai sus e atunci cand avem doar un parametru si un code(2037-birthYear)
+// things change when we add more parameters and codes:
+// we will calculate how many years a person has left until retirement:
 
-// we talked about equality operator, but there's also a 'different' operator:   !=  sau  !==
-if (favourite !== 23) console.log("Why not 23?");
+const yearsUntilRetirement = (birthYear, firstName) => {
+  const age = 2023 - birthYear;
+  const retirement = 65 - age;
+  //return retirement; // return happens implicity only when is a single line of code, here we have to define it bcs we have more lines of code
+  return `${firstName} retires in ${retirement} years`;
+};
+
+console.log(yearsUntilRetirement(1991, "Bob"));
+console.log(yearsUntilRetirement(1999, "Cristian"));
 */
 
-// BASIC BOOLEAN LOGIC: THE AND, OR & NOT OPERATORS
-// LOGICAL OPERATORS
+///// FUNCTIONS CALLING OTHER FUNCTIONS
 /*
-const hasDriversLicence = true; // A
-const hasGoodVision = true; // B
-
-console.log(hasDriversLicence && hasGoodVision);
-console.log(hasDriversLicence || hasGoodVision);
-console.log(!hasDriversLicence);
-
-// if (hasDriversLicence && hasGoodVision) {
-//   console.log("Sarah is able to drive");
-// } else {
-//   console.log("Someone else should drive...");
-// }
-
-const isTired = false; // C
-console.log(hasDriversLicence && hasGoodVision && isTired);
-if (hasDriversLicence && hasGoodVision && !isTired) {
-  console.log("Sarah is able to drive");
-} else {
-  console.log("Someone else should drive...");
+function cutFruitPieces(fruit) {
+  return fruit * 4;
 }
+
+function fruitProcessor(apples, oranges) {
+  const applePieces = cutFruitPieces(apples);
+  const orangePieces = cutFruitPieces(oranges);
+
+  console.log(apples, oranges);
+  const juice = `Juice with ${applePieces} pieces of apple and ${orangePieces} pieces of orange`;
+  return juice;
+}
+
+console.log(fruitProcessor(2, 3));
 */
-// THE SWITCH STATEMENT
+
+//// REVIEWING FUNCTIONS
 /*
-const day = "thursday";
+const calcAge = function (birthYear) {
+  return 2023 - birthYear;
+};
 
-switch (day) {
-  case "monday": // day === 'monday'
-    console.log("Plan course structure");
-    console.log("Go to coding meetup");
-    break;
-  case "tuesday":
-    console.log("Prepare theory videos");
-    break;
-  case "wednesday":
-  case "thursday":
-    console.log("Write code examples");
-    break;
-  case "friday":
-    console.log("Record videos");
-    break;
-  case "saturday":
-  case "sunday":
-    console.log("Enjoy the weekend!");
-    break;
-  default:
-    console.log("Not a valid day!");
-}
+const yearsUntilRetirement = function (birthYear, firstName) {
+  const age = calcAge(birthYear);
+  const retirement = 65 - age;
 
-// mai jos e varianta cu if/else statement
-if (day === "monday") {
-  console.log("Plan course structure");
-} else if (day === "tuesday") {
-  console.log("Prepare theory videos");
-} else if (day === "wednesday" || day === "thursday") {
-  console.log("Write code examples");
-} else if (day === "friday") {
-  console.log("Record videos");
-} else if (day === "saturday" || day === "sunday") {
-  console.log("Enjoy the weekend!");
-} else {
-  console.log("Not a valid day!");
-}
+  if (retirement > 0) {
+    console.log(`${firstName} retires in ${retirement} years`);
+    return retirement;
+  } else {
+    console.log(`${firstName} has already retired`);
+    return -1;
+  }
+};
+
+console.log(yearsUntilRetirement(1999, "Cristian"));
+console.log(yearsUntilRetirement(1950, "Mike"));
 */
-// STATEMENTS AND EXPRESSIONS
+/////////////////////// CHALLANGE 1 //////////////////////////////////
 /*
-// An expression is a piece of code which produces a VALUE, for ex: 3+4 , 1991, true && false etc.
-// statements cannot be inserted into a line where JS expects an expression
-// for ex: console.log(`I'm ${2037 - 1991} years old ${if(..)...});
+const calcAverage = (a, b, c) => (a + b + c) / 3;
+
+// Test 1
+let scoreDolphins = calcAverage(44, 23, 71);
+let scoreKoalas = calcAverage(65, 54, 49);
+
+const checkWinner = function (avgDolphins, avgKoalas) {
+  if (avgDolphins >= 2 * avgKoalas) {
+    console.log(`Dolphins win (${avgDolphins} vs ${avgKoalas})`);
+  } else if (avgKoalas >= 2 * avgDolphins) {
+    console.log(`Koalas win (${avgKoalas} vs ${avgDolphins})`);
+  } else {
+    console.log("No team wins...");
+  }
+};
+
+checkWinner(scoreDolphins, scoreKoalas);
+
+// Test 2
+
+scoreDolphins = calcAverage(85, 54, 41);
+scoreKoalas = calcAverage(23, 34, 27);
+checkWinner(scoreDolphins, scoreKoalas);
 */
 
-//THE CONDITIONAL (TERNARY) OPERATOR
+/// INTRODUCTION TO ARRAYS
 /*
+const friend1 = "Michael";
+const friend2 = "Steven";
+const friend3 = "Peter";
+//instead of writing so many variables, we can store all this values into one variable:
 
-//The Conditional (Ternary- has three parts) operator allows if/else statements to be written in just one line of code, using ? and :
-const age = 18;
-// age >= 18
-//   ? console.log("I like to drink wine")
-//   : console.log("I like to drink water");
+const friends = ["Michael", "Steven", "Peter"];
 
-//varianta de mai sus nu e asa de folosita, in schimb cea de mai jos da:
+//se mai poate scrie si asa:
+const y = new Array(1991, 1984, 2008, 2020);
 
-age >= 18 ? "wine" : "water"; // aici avem an EXPRESSION(which produces a value), and now we can store this value into a variable:
+console.log(friends[0]);
+console.log(friends[2]);
 
-const drink = age >= 18 ? "wine" : "water";
-console.log(drink);
+console.log(friends.length); ///length arata totalul elementelor din array, de ex daca are 100 de elemente si vrei sa stii care e ultimul element atunci pui asta :
+console.log(friends[friends.length - 1]);
 
-// Daca faceam dupa metoda if/else statement, arata asa:
-let drinkNew;
-if (age >= 18) {
-  drinkNew = "wine";
-} else {
-  drinkNew = "water";
-}
-console.log(drinkNew);
+friends[2] = "Jay";
+console.log(friends);
+//
+const firstName = "Jonas";
+const jonas = [firstName, "Cristian", 2023 - 1999, "student", friends];
+console.log(jonas);
 
-// Even further: if ternary operator is an expression, we can use it to create a condition into a Template Literal:
-console.log(`I like to drink ${age >= 18 ? "wine" : "water"}`);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//////////////// ex concret cu ce ne ajuta arrays:
+const calcAge = function (birthYear) {
+  return 2023 - birthYear;
+};
 
+const years = [1990, 1967, 2002, 2010, 2018];
+
+console.log(calcAge(years)); /////////this is not gonna work because we cannot return a number - an array
+
+//WE CANNOT DO OPERATIONS WITH AN ARRAY
+
+///instead, we can do this:
+const age1 = calcAge(years[0]);
+const age2 = calcAge(years[1]);
+const age3 = calcAge(years[years.length - 1]);
+console.log(age1, age2, age3);
+
+// since we started with an array, we should end up also with an array:
+
+const ages = [
+  calcAge(years[0]),
+  calcAge(years[1]),
+  calcAge(years[years.length - 1]),
+];
+console.log(ages);
 */
+
+/////////// BASIC ARRAY OPERATIONS (METHODS)
+/// Add elements
+const friends = ["Michael", "Steven", "Peter"];
+friends.push("Jay"); /////// PUSH is a method, a function, and we call that function directly on the friends array AND IT ADDS AN ELEMENT AT THE END OF THE ARRAY
+console.log(friends);
+
+///THE PUSH FUNCTION RETURNS A VALUE(the value is the length of the new array), so since is a value we can store it into a variable:
+const newLength = friends.push("Jay");
+console.log(newLength);
+
+//////////PUSH method adds element to final, there's also a method that adds elements to the beginning of the array:
+
+friends.unshift("John");
+console.log(friends);
+
+//
+//
+//
+//
+///// Remove elements
+friends.pop(); // POP removes the LAST element of the array
+const popped = friends.pop();
+console.log(popped);
+console.log(friends);
+
+friends.shift(); // SHIFT removes the FIRST element of the array
+console.log(friends);
+
+//
+//
+//
+// There's a method that tells us in which position a certain element is in the array:
+
+console.log(friends.indexOf("Steven"));
+console.log(friends.indexOf("Bob"));
+
+// the modern indexOf, and more useful:
+// will simply return true if the element is in the array, and false if its not:
+friends.push(23);
+console.log(friends.includes("Steven"));
+console.log(friends.includes("Bob"));
+console.log(friends.includes(23));
+
+if (friends.includes("Peter")) {
+  console.log("You have a friend called Peter");
+}
